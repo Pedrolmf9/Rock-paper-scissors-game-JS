@@ -73,8 +73,39 @@ body{
     transform: scale(1.05);
 }
 
-
+@media (max-width: 800px) {
+    .container{
+        align-items: center;
+        justify-content: center;
+        gap: 32px;
+    }
+    .header h1{
+      font-size: 32px;
+    }
+    .header h2{
+        font-size: 22px;
+    }
+    .buttons img{
+        width: 96px;
+        height: auto;
+    }
+    .counters{
+        font-size: 42px;
+    }
+    .results{
+        width: 280px;
+        font-size: 18px;
+    }
+    .final{
+        font-size: 32px;
+    }
+  }
 @media (max-width: 480px) {
+    .container{
+        align-items: center;
+        justify-content: center;
+        gap: 32px;
+    }
     .header h1{
       font-size: 26px;
     }
