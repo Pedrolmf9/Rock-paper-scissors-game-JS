@@ -72,3 +72,27 @@ body{
     filter: drop-shadow(0px 0px 8px rgb(136, 237, 255));
     transform: scale(1.05);
 }
+
+
+@media (max-width: 480px) {
+    .header h1{
+      font-size: 26px;
+    }
+    .header h2{
+        font-size: 18px;
+    }
+    .buttons img{
+        width: 80px;
+        height: auto;
+    }
+    .counters{
+        font-size: 22px;
+    }
+    .results{
+        width: 280px;
+        font-size: 18px;
+    }
+    .final{
+        font-size: 32px;
+    }
+  }
