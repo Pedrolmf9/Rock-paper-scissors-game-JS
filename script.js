@@ -1,14 +1,3 @@
-let playerWins = 0;
-let computerWins = 0;
-const counters = document.querySelector('.counters');
-const resultCountComp = document.createElement('p');
-const resultCountPlayer = document.createElement('p');
-resultCountPlayer.textContent = "Player: " + playerWins;
-resultCountComp.textContent = "Computer: " + computerWins;
-counters.appendChild(resultCountComp);
-counters.appendChild(resultCountPlayer);
-
-
 function getComputerChoice(){
     const options = ["rock", "paper", "scissors"];
     const pick = Math.floor(Math.random() * 3);
@@ -16,15 +5,7 @@ function getComputerChoice(){
     return choice;
 }
 
-function playRound(playerSelection){
-    
-
-    
-
-    const results = document.querySelector('.results');
-    const resultText = document.createElement('p');
-    results.appendChild(resultText);
-    
+function playRound(playerSelection){  
     let computerSelection = getComputerChoice();
     
     if (computerSelection == playerSelection) {
@@ -42,8 +23,8 @@ function playRound(playerSelection){
         resultText.textContent = "Computer wins this round! " + computerWins + " point(s) for computer";
         results.replaceChildren(resultText.textContent);
         if (computerWins == 5){
-            resultText.textContent = "Computer is the final Winner!!";
-            results.appendChild(resultText);
+            finalMsg.textContent = "Computer is the final Winner!!";
+            results.appendChild(finalMsg);
             playerWins = 0;
             computerWins = 0;
             resultCountPlayer.textContent = "Player: " + playerWins;
@@ -56,8 +37,8 @@ function playRound(playerSelection){
         resultText.textContent = "YAY! You won this round! " + playerWins + " point(s) for you";
         results.replaceChildren(resultText.textContent);        
         if (playerWins == 5){
-            resultText.textContent = "You are the final Winner!!";
-            results.appendChild(resultText);
+            finalMsg.textContent = "You are the final Winner!!";
+            results.appendChild(finalMsg);
             playerWins = 0;
             computerWins = 0;
             resultCountPlayer.textContent = "Player: " + playerWins;
@@ -67,14 +48,30 @@ function playRound(playerSelection){
 }
 
 function getButtom(){
-    const buttons = document.querySelectorAll('button');
+    const buttons = document.querySelectorAll('img');
 
-    buttons.forEach((button) => {
-        button.addEventListener('click', () =>{
-            playRound(button.id);
+    buttons.forEach((img) => {
+        img.addEventListener('click', () =>{
+        playRound(img.id);
         });
     });
 
 }
+
+let playerWins = 0;
+let computerWins = 0;
+const counters = document.querySelector('.counters');
+const resultCountComp = document.createElement('p');
+const resultCountPlayer = document.createElement('p');
+resultCountPlayer.textContent = "Player: " + playerWins;
+resultCountComp.textContent = "Computer: " + computerWins;
+counters.appendChild(resultCountComp);
+counters.appendChild(resultCountPlayer);
+const results = document.querySelector('.results');
+const resultText = document.createElement('p');
+resultText.textContent = 'Choose your weapon!';
+results.appendChild(resultText);
+const finalMsg = document.createElement('p');
+finalMsg.classList.add("final");
 
 getButtom();
